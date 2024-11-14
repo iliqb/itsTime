@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "it's Time",
+  "description": "",
+  "version": "1.0",
+  "author": "iqb",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "it's Time"
+  }
+}
