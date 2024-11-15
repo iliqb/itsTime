@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
     <title>it's Time</title>
   </head>
   <body>
@@ -13,11 +13,19 @@
         <h1>it's Time</h1>
         <h2>Ready!</h2>
       </div>
-      <div class="event">
+      <div id="event">
         <input type="text" id="input" placeholder="Add event"></input>
       </div>
-      <div>
-
+     <div class="txt">
+      <h3>you have until </h3>
+     </div>
+      <div id="calendar">
+        <input type="date" id="date"> </input>
+      </div>
+      <div id="botton">
+        <botton onclick="scheduleRemider();">
+          Go
+        </botton>
       </div>
     </div>
   </body>
