@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveEvent(eventName, eventDate) {
     chrome.storage.sync.set({ eventName, eventDate }, () => {
-      console.log("Evento guardado", { eventName, eventDate });
+      console.log("saved", { eventName, eventDate });
     });
   }
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       countdownElement.textContent = `${eventName} is in ${diffDays} day(s).`;
-    }, 1000); // Actualizar cada segundo
+    }, 1000);
   }
 
   goButton.addEventListener("click", () => {
