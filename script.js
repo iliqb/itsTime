@@ -32,11 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const today = new Date();
       const targetDate = new Date(eventDate);
       const diffTime = targetDate - today;
+      today.setHours(0, 0, 0, 0);
+      targetDate.setHours(0, 0, 0, 0);
+
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
       if (diffTime <= 0) {
         clearInterval(countdownInterval);
-        if (diffTime === 0) {
+        if (diffDays === 0) {
           countdownElement.textContent = `Today is "${eventName}"!`;
         } else {
           countdownElement.textContent = `Your event "${eventName}" already happened.`;
