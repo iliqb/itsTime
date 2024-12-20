@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const eventInput = document.getElementById("event");
   const dateInput = document.getElementById("date");
   const goButton = document.getElementById("goButton");
+  const dayLabel = document.getElementById("Days");
   let countdownInterval;
 
   function loadSavedEvent() {
@@ -36,15 +37,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (diffTime <= 0) {
         clearInterval(countdownInterval);
-        if (diffDays === -1) {
+        dayLabel.textContent = "";
+        if (diffDays === 0) {
           countdownElement.textContent = `Today is "${eventName}"!`;
         } else {
-          countdownElement.textContent = `Your event "${eventName}" already happened.`;
+          countdownElement.textContent = `"${eventName}" already happened.`;
         }
         return;
+      } else {
+        // dayLabel.hidden = false / remove
+        if (diffDays == 1) {
+          dayLabel.textContent = "Day";
+        } else {
+          dayLabel.textContent = "Days";
+        }
       }
 
-      countdownElement.textContent = `${eventName} is in ${diffDays} day(s).`;
+      countdownElement.textContent = `${diffDays}`;
       chrome.action.setBadgeText({ text: `${diffDays}` });
     }, 1000);
   }
@@ -63,4 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   loadSavedEvent();
+});
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.action.setBadgeText({ text: "0" });
+  chrome.action.setBadgeBackgroundColor({ color: "#FF5733" });
+});
+
+chrome.action.onClicked.addListener(() => {
+  chrome.action.setBadgeText({ text: "${diffDays}" });
+  chrome.action.setBadgeBackgroundColor({ color: "#007BFF" });
+});
+
+document.getElementById("donateButton").addEventListener("click", () => {
+  const donateUrl = "https://paypal.me/iqb164?country.x=MX&locale.x=es_XC";
+  window.open(donateUrl, "_blank");
 });

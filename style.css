@@ -1,10 +1,10 @@
 :root {
-  --color-primary: #54c7a8;
-  --color-secondary: #2ecc71;
-  --color-background: #eff3cd;
-  --color-text: #61ada0;
-  --color-placeholder: #b2d5ba;
-  --color-button-hover: #605063;
+  --color-primary: #03a6a6;
+  --color-secondary: #04bfad;
+  --color-background: #add4d9;
+  --color-text: #0d9fd9;
+  --color-placeholder: #a3d9d9;
+  --color-button-hover: #567370;
   --color-light-bg: #f9f9f9;
   --font-family: "DejaVu Sans Mono", monospace;
 }
@@ -25,7 +25,7 @@ body {
   width: 220px;
   height: 250px;
   padding: 10px;
-  background-color: white;
+  background-color: #f2f2f2;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -107,4 +107,27 @@ main {
 
 .button button:active {
   transform: scale(0.95);
+}
+.donate {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#donateButton {
+  background: none;
+  border: none;
+  color: #555555;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+#donateButton:hover {
+  color: #3498db;
+}
+
+#donateButton:active {
+  color: #2980b9;
 }
